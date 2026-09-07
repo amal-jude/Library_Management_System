@@ -104,7 +104,7 @@ public class Book_Table extends JFrame {
 				}
                 try {
                     Class.forName("oracle.jdbc.driver.OracleDriver");
-                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
                     PreparedStatement pstmt = con.prepareStatement("insert into books values(?,?,?,?,?)");
                     pstmt.setString(1, id);
                     pstmt.setString(2, btitle);
@@ -149,7 +149,7 @@ public class Book_Table extends JFrame {
 				}
 				try {
                     Class.forName("oracle.jdbc.driver.OracleDriver");
-                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
                     PreparedStatement pstmt = con.prepareStatement("update books set title=?, author=?, category=?, quantity=? where book_id=?");
                     pstmt.setString(5, id);
                     pstmt.setString(1, btitle);
@@ -192,7 +192,7 @@ public class Book_Table extends JFrame {
 
 		        try {
 		            Class.forName("oracle.jdbc.driver.OracleDriver");
-		            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+		            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
 
 		            PreparedStatement check = con.prepareStatement("select book_id from books where book_id=?");
 		            check.setString(1,id);
@@ -265,7 +265,7 @@ public class Book_Table extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
                     Class.forName("oracle.jdbc.driver.OracleDriver");
-                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
                     Statement stmt = con.createStatement();
                     ResultSet rs = stmt.executeQuery("select * from books order by book_id");
                     
@@ -320,7 +320,7 @@ public class Book_Table extends JFrame {
 
 		        try {
 		            Class.forName("oracle.jdbc.driver.OracleDriver");
-		            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+		            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
 
 		            PreparedStatement pstmt = con.prepareStatement("select * from books where book_id=?");
 		            pstmt.setString(1, id);
