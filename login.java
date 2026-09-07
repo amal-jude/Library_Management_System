@@ -81,7 +81,7 @@ public class login extends JFrame {
                 String p = pass.getText();
                 try {
                     Class.forName("oracle.jdbc.driver.OracleDriver");
-                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
                     PreparedStatement pstmt = con.prepareStatement("select * from login where username=? and password=?");
                     pstmt.setString(1, u);
                     pstmt.setString(2, p);
