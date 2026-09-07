@@ -112,7 +112,7 @@ public class Member_Table extends JFrame {
 				}
 				try {
                     Class.forName("oracle.jdbc.driver.OracleDriver");
-                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
                     PreparedStatement pstmt = con.prepareStatement("insert into members values(?,?,?,?)");
                     pstmt.setString(1, id);
                     pstmt.setString(2, nm);
@@ -156,7 +156,7 @@ public class Member_Table extends JFrame {
 				}
 				try {
                     Class.forName("oracle.jdbc.driver.OracleDriver");
-                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
                     PreparedStatement pstmt = con.prepareStatement("update members set name =?, email=?, phone=? where member_id=?");
                     pstmt.setString(4, id);
                     pstmt.setString(1, nm);
@@ -198,7 +198,7 @@ public class Member_Table extends JFrame {
 
 		        try {
 		            Class.forName("oracle.jdbc.driver.OracleDriver");
-		            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+		            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
 
 		            PreparedStatement check = con.prepareStatement("select Member_ID from members where Member_ID=?");
 		            check.setString(1,id);
@@ -258,7 +258,7 @@ public class Member_Table extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
                     Class.forName("oracle.jdbc.driver.OracleDriver");
-                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
                     Statement stmt = con.createStatement();
                     
                     ResultSet rs = stmt.executeQuery("select * from members order by member_id");
@@ -307,7 +307,7 @@ public class Member_Table extends JFrame {
 
 		        try {
 		            Class.forName("oracle.jdbc.driver.OracleDriver");
-		            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+		            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
 
 		            PreparedStatement pstmt = con.prepareStatement("select * from members where member_id=?");
 		            pstmt.setString(1, id);
