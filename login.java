@@ -49,19 +49,17 @@ public class login extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
-
+        
         uname = new JTextField();
         uname.setFont(new Font("Tahoma", Font.PLAIN, 12));
         uname.setBounds(203, 101, 96, 26);
         contentPane.add(uname);
         uname.setColumns(10);
 
-        pass = new JTextField();
-        pass.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        pass.setBounds(203, 152, 96, 26);
+        pass = new JPasswordField();
+        pass.setBounds(203, 153, 96, 26);
         contentPane.add(pass);
-        pass.setColumns(10);
-
+        
         JLabel lblNewLabel = new JLabel("Username:");
         lblNewLabel.setForeground(new Color(174, 255, 255));
         lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -78,7 +76,7 @@ public class login extends JFrame {
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String u = uname.getText();
-                String p = pass.getText();
+                String p = new String(pass.getPassword());
                 try {
                     Class.forName("oracle.jdbc.driver.OracleDriver");
                     Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
