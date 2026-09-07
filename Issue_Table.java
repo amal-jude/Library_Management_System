@@ -103,7 +103,7 @@ public class Issue_Table extends JFrame {
 		contentPane.add(bookid);
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
             PreparedStatement pstmt = con.prepareStatement("select book_id from books");
 
                 ResultSet rs = pstmt.executeQuery();
@@ -124,7 +124,7 @@ public class Issue_Table extends JFrame {
 		contentPane.add(memid);
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
             PreparedStatement pstmt = con.prepareStatement("select member_id from members");
 
                 ResultSet rs = pstmt.executeQuery();
@@ -154,7 +154,7 @@ public class Issue_Table extends JFrame {
 				}
 				try {
 					Class.forName("oracle.jdbc.driver.OracleDriver");
-					Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+					Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
 					PreparedStatement pstmt = con.prepareStatement("insert into issue values(?,?,?,?,?)");
 					pstmt.setString(1,iid);
 					pstmt.setString(2,bid);
@@ -201,7 +201,7 @@ public class Issue_Table extends JFrame {
 				
 				try {
 					Class.forName("oracle.jdbc.driver.OracleDriver");
-					Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+					Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
 					PreparedStatement pstmt = con.prepareStatement("update issue set book_id=?, member_id=?, issue_date=?,return_date=? where issue_id=?");
 					pstmt.setString(5,iid);
 					pstmt.setString(1,bid);
@@ -244,7 +244,7 @@ public class Issue_Table extends JFrame {
 
 		        try {
 		            Class.forName("oracle.jdbc.driver.OracleDriver");
-		            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+		            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
 
 		            PreparedStatement check = con.prepareStatement("select Issue_id from Issue where Issue_id=?");
 		            check.setString(1,iid);
@@ -292,7 +292,7 @@ public class Issue_Table extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
                     Class.forName("oracle.jdbc.driver.OracleDriver");
-                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
                     Statement stmt = con.createStatement();
 
                     ResultSet rs = stmt.executeQuery("select * from issue order by issue_id");
@@ -353,7 +353,7 @@ public class Issue_Table extends JFrame {
 
 		        try {
 		            Class.forName("oracle.jdbc.driver.OracleDriver");
-		            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","bca","bca");
+		            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","USERNAME","PASSWORD");
 		            
 		            PreparedStatement pstmt = con.prepareStatement("select * from issue where issue_id=?");
 		            pstmt.setString(1, id);
